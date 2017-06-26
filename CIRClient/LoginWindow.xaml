@@ -1,0 +1,70 @@
+﻿<controls:MetroWindow x:Class="CIRClient.LoginWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        xmlns:controls="http://metro.mahapps.com/winfx/xaml/controls"
+        mc:Ignorable="d"
+                      
+        TextElement.Foreground="{DynamicResource MaterialDesignBody}"
+        TextElement.FontWeight="Regular"
+        TextElement.FontSize="16"
+        TextElement.FontFamily="Arial,SimSum"
+        TextOptions.TextFormattingMode="Ideal" 
+        TextOptions.TextRenderingMode="Auto"        
+
+        FontFamily="{DynamicResource MaterialDesignFont}"
+        Background="{DynamicResource MaterialDesignPaper}"
+        GlowBrush="{DynamicResource AccentColorBrush}"	
+        
+        WindowStartupLocation="CenterScreen"
+        
+        Height="500"
+        Width="800"
+        MinHeight="500"
+        MinWidth="800"
+        Title="登录" ResizeMode="NoResize" >
+    <materialDesign:DialogHost  x:Name="LoginDialogHost" Identifier="LoginDialog">
+        <Grid Height="300" Width="400" Margin="0 0 30 80" VerticalAlignment="Center" HorizontalAlignment="Center">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="60*"/>
+                <RowDefinition Height="30*"/>
+                <RowDefinition Height="30*"/>
+                <RowDefinition Height="5*"/>
+                <RowDefinition Height="40*"/>
+                <RowDefinition Height="10*"/>
+            </Grid.RowDefinitions>
+            <Grid Grid.Row="0" VerticalAlignment="Center" HorizontalAlignment="Center">
+                <TextBlock Opacity="0.6" Margin="25 0 0 20" Style="{StaticResource MaterialDesignDisplay1TextBlock}" Text="CIR文件上传客户端"/>
+            </Grid>
+            <StackPanel  Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Center" Orientation="Horizontal" Margin="30,6">
+                <materialDesign:PackIcon  Margin="10 10 10 0" Kind="Account" Foreground="{Binding ElementName=NameTextBox, Path=BorderBrush}" HorizontalAlignment="Right" VerticalAlignment="Center" />
+                <TextBox  x:Name="NameTextBox"  materialDesign:HintAssist.Hint="用户名"  Width="170" KeyUp ="TextBox_KeyUp" KeyDown="TextBox_KeyDown"
+                     Style="{StaticResource MaterialDesignFloatingHintTextBox}"/>
+            </StackPanel>
+            <StackPanel Grid.Row="2" HorizontalAlignment="Center" VerticalAlignment="Center" Orientation="Horizontal" Margin="30,6,30,7">
+                <materialDesign:PackIcon Margin="10 10 10 0" Kind="Key" Foreground="{Binding ElementName=PasswordBox, Path=BorderBrush}" HorizontalAlignment="Right" VerticalAlignment="Center" />
+                <PasswordBox x:Name="PasswordBox"
+                     materialDesign:HintAssist.Hint="密码" KeyUp ="TextBox_KeyUp" KeyDown="TextBox_KeyDown"
+                         Style="{StaticResource MaterialDesignFloatingHintPasswordBox}"
+                         Width="170"/>
+            </StackPanel>
+            <StackPanel Grid.Row="4" Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Center" >
+                <Button Padding="1"  Style="{StaticResource MaterialDesignFlatButton}" Margin="10 0 17 0" HorizontalAlignment="Left"  VerticalAlignment="Top" Width="82" Click="Login_click" 
+                        IsDefault="true">
+                    <StackPanel Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Center">
+                        <materialDesign:PackIcon Margin="0 0 5 0" Kind="ArrowRightBoldCircleOutline" HorizontalAlignment="Right" VerticalAlignment="Center" />
+                        <TextBlock FontSize="16">登录</TextBlock>
+                    </StackPanel>
+                </Button>
+                <Button Padding="1"  Style="{StaticResource MaterialDesignFlatButton}" Margin="27 0 5 0" HorizontalAlignment="Left"  VerticalAlignment="Top" Width="82" Click="Cancel_click">
+                    <StackPanel Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Center">
+                        <materialDesign:PackIcon Margin="0 0 5 0" Kind="Delete" HorizontalAlignment="Right" VerticalAlignment="Center" />
+                        <TextBlock FontSize="16">清空</TextBlock>
+                    </StackPanel>
+                </Button>
+            </StackPanel>
+        </Grid>
+    </materialDesign:DialogHost>
+</controls:MetroWindow>
