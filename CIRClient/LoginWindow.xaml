@@ -51,17 +51,17 @@
                          Width="170"/>
             </StackPanel>
             <StackPanel Grid.Row="4" Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Center" >
-                <Button Padding="1"  Style="{StaticResource MaterialDesignFlatButton}" Margin="10 0 17 0" HorizontalAlignment="Left"  VerticalAlignment="Top" Width="82" Click="Login_click" 
+                <Button Padding="1" Margin="10 0 17 0" HorizontalAlignment="Left"  VerticalAlignment="Top" Width="82" Click="Login_click" 
                         IsDefault="true">
                     <StackPanel Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Center">
                         <materialDesign:PackIcon Margin="0 0 5 0" Kind="ArrowRightBoldCircleOutline" HorizontalAlignment="Right" VerticalAlignment="Center" />
-                        <TextBlock FontSize="16">登录</TextBlock>
+                        <TextBlock FontSize="18">登录</TextBlock>
                     </StackPanel>
                 </Button>
-                <Button Padding="1"  Style="{StaticResource MaterialDesignFlatButton}" Margin="27 0 5 0" HorizontalAlignment="Left"  VerticalAlignment="Top" Width="82" Click="Cancel_click">
+                <Button Padding="1" Margin="27 0 5 0" HorizontalAlignment="Left"  VerticalAlignment="Top" Width="82" Click="Cancel_click">
                     <StackPanel Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Center">
                         <materialDesign:PackIcon Margin="0 0 5 0" Kind="Delete" HorizontalAlignment="Right" VerticalAlignment="Center" />
-                        <TextBlock FontSize="16">清空</TextBlock>
+                        <TextBlock FontSize="18">清空</TextBlock>
                     </StackPanel>
                 </Button>
             </StackPanel>

@@ -27,6 +27,7 @@
                 <ColumnDefinition/>
                 <ColumnDefinition/>
                 <ColumnDefinition/>
+                <ColumnDefinition/>
             </Grid.ColumnDefinitions>
             <StackPanel Grid.Column="0" HorizontalAlignment="Center" VerticalAlignment="Center" Orientation="Horizontal" Margin="10,0">
                 <TextBox  Text="{Binding SearchPerson, Mode=TwoWay}" materialDesign:HintAssist.Hint="上传人" Width="100" KeyUp ="TextBox_KeyUp" KeyDown="TextBox_KeyDown"
@@ -36,26 +37,36 @@
                 <TextBox  Text="{Binding SearchDevType, Mode=TwoWay}" materialDesign:HintAssist.Hint="设备类型" Width="100" KeyUp ="TextBox_KeyUp" KeyDown="TextBox_KeyDown"
                      Style="{StaticResource MaterialDesignFloatingHintTextBox}"/>
             </StackPanel>
-            <vm:MyStartDatePicker Grid.Column="2" Height="30" VerticalAlignment="Bottom" Margin="10,0">
-                <vm:MyStartDatePicker.Resources>
-                    <Style TargetType="DatePickerTextBox">
-                        <Setter Property="Text" Value="{Binding SearchStartTime, Mode=TwoWay}"/>
-                    </Style>
-                </vm:MyStartDatePicker.Resources>
-            </vm:MyStartDatePicker>
-            <vm:MyEndDatePicker Grid.Column="3"  Height="30" VerticalAlignment="Bottom" Margin="10,0">
-                <vm:MyEndDatePicker.Resources>
-                    <Style TargetType="DatePickerTextBox">
-                        <Setter Property="Text" Value="{Binding SearchEndTime, Mode=TwoWay}"/>
-                    </Style>
-                </vm:MyEndDatePicker.Resources>
-            </vm:MyEndDatePicker>
+            <StackPanel Grid.Column="2" HorizontalAlignment="Center" VerticalAlignment="Center" Orientation="Horizontal" Margin="10,0">
+                <TextBox  Text="{Binding SearchVersion, Mode=TwoWay}" materialDesign:HintAssist.Hint="数据版本" Width="100" KeyUp ="TextBox_KeyUp" KeyDown="TextBox_KeyDown"
+                     Style="{StaticResource MaterialDesignFloatingHintTextBox}"/>
+            </StackPanel>
+            <StackPanel Grid.Column="3" HorizontalAlignment="Center" VerticalAlignment="Center" Orientation="Horizontal" Margin="10,0">
+                <Label Content="开始时间" VerticalAlignment="Bottom" Margin="5,0"/>
+                <vm:MyDatePicker Height="30" VerticalAlignment="Bottom">
+                    <vm:MyDatePicker.Resources>
+                        <Style TargetType="DatePickerTextBox">
+                            <Setter Property="Text" Value="{Binding SearchStartTime, Mode=TwoWay}"/>
+                        </Style>
+                    </vm:MyDatePicker.Resources>
+                </vm:MyDatePicker>
+            </StackPanel>
             <StackPanel Grid.Column="4" HorizontalAlignment="Center" VerticalAlignment="Center" Orientation="Horizontal" Margin="10,0">
-                <Button Padding="1"  Style="{StaticResource MaterialDesignFlatButton}" Margin="10 0" Width="100" HorizontalAlignment="Center"  VerticalAlignment="Bottom" 
+                <Label Content="截止时间" VerticalAlignment="Bottom" Margin="5,0"/>
+                <vm:MyDatePicker Height="30" VerticalAlignment="Bottom">
+                    <vm:MyDatePicker.Resources>
+                        <Style TargetType="DatePickerTextBox">
+                            <Setter Property="Text" Value="{Binding SearchEndTime, Mode=TwoWay}"/>
+                        </Style>
+                    </vm:MyDatePicker.Resources>
+                </vm:MyDatePicker>
+            </StackPanel>
+            <StackPanel Grid.Column="5" HorizontalAlignment="Center" VerticalAlignment="Bottom" Orientation="Horizontal" Margin="10,0">
+                <Button Padding="1" Margin="10 0" Width="100" HorizontalAlignment="Center"  VerticalAlignment="Bottom" 
                         Command="{Binding SearchCommand}">
-                    <StackPanel Orientation="Horizontal" VerticalAlignment="Bottom" HorizontalAlignment="Center">
-                        <materialDesign:PackIcon Margin="0 0 5 0" Kind="FileFind" HorizontalAlignment="Right" VerticalAlignment="Bottom" />
-                        <TextBlock FontSize="16" VerticalAlignment="Bottom">查询</TextBlock>
+                    <StackPanel Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Center">
+                        <materialDesign:PackIcon Margin="0 0 5 0" Kind="FileFind" HorizontalAlignment="Right" VerticalAlignment="Center" />
+                        <TextBlock FontSize="20" VerticalAlignment="Bottom">查询</TextBlock>
                     </StackPanel>
                 </Button>
             </StackPanel>
@@ -87,12 +98,12 @@
                 <DataGrid.Columns>
                     <DataGridTextColumn Header="时间" Binding="{Binding time}" Width="170"/>
                     <DataGridTextColumn Header="设备类型" Binding="{Binding devType}" Width="100"/>
-                    <DataGridTextColumn Header="版本号" Binding="{Binding version}" Width="100"/>
+                    <DataGridTextColumn Header="版本号" Binding="{Binding version}" Width="200"/>
                     <DataGridTextColumn Header="上传人" Binding="{Binding person}" Width="100"/>
                     <DataGridTextColumn Header="描述" Binding="{Binding desc}" Width="200"/>
-                    <DataGridTextColumn Header="文件一" Binding="{Binding file1}" Width="150"/>
-                    <DataGridTextColumn Header="文件二" Binding="{Binding file2}" Width="150"/>
-                    <DataGridCheckBoxColumn Header="是否上传成功" Binding="{Binding isSuccess}" Width="120"/>
+                    <DataGridTextColumn Header="摘要文件" Binding="{Binding file1}" Width="150"/>
+                    <DataGridTextColumn Header="数据文件" Binding="{Binding file2}" Width="150"/>
+                    <DataGridTextColumn Header="是否上传成功" Binding="{Binding isSuccess}" Width="120"/>
                 </DataGrid.Columns>
             </DataGrid>
         </Grid>

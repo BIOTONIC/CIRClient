@@ -7,6 +7,8 @@
         xmlns:controls="http://metro.mahapps.com/winfx/xaml/controls"
         xmlns:local ="clr-namespace:CIRClient"
         xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
+        xmlns:forms="clr-namespace:System.Windows.Forms;assembly=System.Windows.Forms"
+        xmlns:toolkit="http://schemas.xceed.com/wpf/xaml/toolkit"
         mc:Ignorable="d"
                       
         TextElement.Foreground="{DynamicResource MaterialDesignBody}"
@@ -80,9 +82,9 @@
                                 <TextBox  x:Name="TypeBox" materialDesign:HintAssist.Hint="设备类型" Width="150" KeyUp ="TextBox_KeyUp" KeyDown="TextBox_KeyDown"
                                           Style="{StaticResource MaterialDesignFloatingHintTextBox}"/>
                             </StackPanel>
-                            <StackPanel Grid.Column="2" HorizontalAlignment="Center" VerticalAlignment="Center" Orientation="Horizontal" Margin="10,0">
-                                <TextBox  x:Name="VerBox" materialDesign:HintAssist.Hint="数据版本" Width="150" KeyUp ="TextBox_KeyUp" KeyDown="TextBox_KeyDown"
-                     Style="{StaticResource MaterialDesignFloatingHintTextBox}"/>
+                            <StackPanel Grid.Column ="2" HorizontalAlignment="Center" VerticalAlignment="Center" Orientation="Horizontal">
+                                <Label Content="数据版本:" Margin="5,0" VerticalAlignment="Bottom"/>
+                                <toolkit:MaskedTextBox Name="VersionBox" Mask="V0.0.00-00/00/00 00" VerticalAlignment="Bottom" FontSize="20"/>
                             </StackPanel>
                         </Grid>
                         <StackPanel Grid.Row="3" HorizontalAlignment="Center" VerticalAlignment="Center" Orientation="Horizontal">
@@ -105,7 +107,7 @@
                                 <Button Padding="1"  Style="{StaticResource MaterialDesignFlatButton}" Margin="10 0" HorizontalAlignment="Center"  VerticalAlignment="Center" Click="File1Select_Click">
                                     <StackPanel Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Center">
                                         <materialDesign:PackIcon Margin="0 0 5 0" Kind="PlusBox" HorizontalAlignment="Right" VerticalAlignment="Center" />
-                                        <TextBlock FontSize="16">文件一选择</TextBlock>
+                                        <TextBlock FontSize="16">摘要文件选择</TextBlock>
                                     </StackPanel>
                                 </Button>
                             </StackPanel>
@@ -113,40 +115,40 @@
                                 <Button Padding="1"  Style="{StaticResource MaterialDesignFlatButton}" Margin="10 0" HorizontalAlignment="Center"  VerticalAlignment="Center" Click="File2Select_Click">
                                     <StackPanel Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Center">
                                         <materialDesign:PackIcon Margin="0 0 5 0" Kind="PlusBox" HorizontalAlignment="Right" VerticalAlignment="Center" />
-                                        <TextBlock FontSize="16">文件二选择</TextBlock>
+                                        <TextBlock FontSize="16">数据文件选择</TextBlock>
                                     </StackPanel>
                                 </Button>
                             </StackPanel>
                             <StackPanel Grid.Row="1" Grid.Column="0" HorizontalAlignment="Center" VerticalAlignment="Center" Orientation="Horizontal" Margin="20,0">
-                                <TextBox  x:Name="File1NameBox" materialDesign:HintAssist.Hint="文件一名称"  TextWrapping="Wrap" IsEnabled="False"
+                                <TextBox  x:Name="File1NameBox" materialDesign:HintAssist.Hint="摘要文件名称"  TextWrapping="Wrap" IsEnabled="False"
                      Style="{StaticResource MaterialDesignFloatingHintTextBox}"/>
                             </StackPanel>
                             <StackPanel Grid.Row="1" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center" Orientation="Horizontal" Margin="20,0">
-                                <TextBox  x:Name="File2NameBox" materialDesign:HintAssist.Hint="文件二名称" TextWrapping="Wrap" IsEnabled="False"
+                                <TextBox  x:Name="File2NameBox" materialDesign:HintAssist.Hint="数据文件名称" TextWrapping="Wrap" IsEnabled="False"
                      Style="{StaticResource MaterialDesignFloatingHintTextBox}"/>
                             </StackPanel>
                             <StackPanel Grid.Row="2" Grid.Column="0" HorizontalAlignment="Center" VerticalAlignment="Center" Orientation="Horizontal" Margin="20,0">
-                                <TextBox  x:Name="File1SizeBox" materialDesign:HintAssist.Hint="文件一大小"  TextWrapping="Wrap" IsEnabled="False"
+                                <TextBox  x:Name="File1SizeBox" materialDesign:HintAssist.Hint="摘要文件大小"  TextWrapping="Wrap" IsEnabled="False"
                      Style="{StaticResource MaterialDesignFloatingHintTextBox}"/>
                             </StackPanel>
                             <StackPanel Grid.Row="2" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center" Orientation="Horizontal" Margin="20,0">
-                                <TextBox  x:Name="File2SizeBox" materialDesign:HintAssist.Hint="文件二大小"  TextWrapping="Wrap" IsEnabled="False"
+                                <TextBox  x:Name="File2SizeBox" materialDesign:HintAssist.Hint="数据文件大小"  TextWrapping="Wrap" IsEnabled="False"
                      Style="{StaticResource MaterialDesignFloatingHintTextBox}"/>
                             </StackPanel>
                             <StackPanel Grid.Row="3" Grid.Column="0" HorizontalAlignment="Center" VerticalAlignment="Center" Orientation="Horizontal" Margin="20,0">
-                                <TextBox  x:Name="File1HashBox" materialDesign:HintAssist.Hint="文件一哈希"  TextWrapping="Wrap" IsEnabled="False"
+                                <TextBox  x:Name="File1HashBox" materialDesign:HintAssist.Hint="摘要文件哈希"  TextWrapping="Wrap" IsEnabled="False"
                      Style="{StaticResource MaterialDesignFloatingHintTextBox}"/>
                             </StackPanel>
                             <StackPanel Grid.Row="3" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center" Orientation="Horizontal" Margin="20,0">
-                                <TextBox  x:Name="File2HashBox" materialDesign:HintAssist.Hint="文件二哈希"  TextWrapping="Wrap" IsEnabled="False"
+                                <TextBox  x:Name="File2HashBox" materialDesign:HintAssist.Hint="数据文件哈希"  TextWrapping="Wrap" IsEnabled="False"
                      Style="{StaticResource MaterialDesignFloatingHintTextBox}"/>
                             </StackPanel>
                         </Grid>
                         <StackPanel Grid.Row="5" HorizontalAlignment="Center" VerticalAlignment="Center" Orientation="Horizontal" Margin="20,0">
-                            <Button Padding="1"  Style="{StaticResource MaterialDesignFlatButton}" Margin="10,0" HorizontalAlignment="Center"  VerticalAlignment="Center" Click="Upload_Click">
+                            <Button Padding="1" Margin="10,0" HorizontalAlignment="Center"  VerticalAlignment="Bottom" Click="Upload_Click">
                                 <StackPanel Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Center">
-                                    <materialDesign:PackIcon Margin="0 0 5 0" Kind="ArrowRightBoldCircleOutline" HorizontalAlignment="Right" VerticalAlignment="Center" />
-                                    <TextBlock FontSize="16">上传文件</TextBlock>
+                                    <materialDesign:PackIcon Margin="0 0 5 0" Kind="ArrowUpBoldCircleOutline" HorizontalAlignment="Right" VerticalAlignment="Center" />
+                                    <TextBlock FontSize="20">上传文件</TextBlock>
                                 </StackPanel>
                             </Button>
                         </StackPanel>

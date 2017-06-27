@@ -4,6 +4,7 @@ using Microsoft.Win32;
 using System;
 using System.Windows.Controls;
 using System.Windows.Input;
+using System.Text.RegularExpressions;
 
 namespace CIRClient
 {
@@ -49,6 +50,12 @@ namespace CIRClient
 
             popupWindow = new PopupWindow("登录成功", 1000);
             popupWindow.Show();
+        }
+
+        // 输入框只能输入数字
+        private void TextBox_PreviewTextInput(object sender, TextCompositionEventArgs e)
+        {
+            e.Handled = new Regex("[^0-9]+").IsMatch(e.Text);
         }
 
         // 输入框禁止特殊字符
@@ -125,7 +132,10 @@ namespace CIRClient
             // 收集填写的数据
             string person = PersonBox.Text;
             string type = TypeBox.Text;
-            string version = VerBox.Text;
+
+            string version = VersionBox.Text;
+            Console.WriteLine(version);
+
             string desc = DescBox.Text;
             string file1Name = File1NameBox.Text;
             string file1Size = file1ByteSize.ToString();

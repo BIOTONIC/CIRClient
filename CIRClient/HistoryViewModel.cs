@@ -55,6 +55,21 @@ namespace CIRClient
             }
         }
 
+        // 绑定查询的数据版本
+        private string _searchVersion;
+
+        public string SearchVersion
+        {
+            get { return _searchVersion; }
+            set
+            {
+                if (_searchVersion != value)
+                {
+                    _searchVersion = value;
+                }
+            }
+        }
+
         // 绑定查询的起始时间
         private string _searchStartTime;
 
@@ -276,6 +291,11 @@ namespace CIRClient
                 searchStr += "&devType:";
                 searchStr += _searchDevType;
             }
+            if (_searchVersion != "" && _searchVersion != null)
+            {
+                searchStr += "&version:";
+                searchStr += _searchVersion;
+            }
             if (_searchStartTime != "" && _searchStartTime != null)
             {
                 // 时间原本是"2017/6/22"类型的 要转成"2017-6-22"
@@ -345,7 +365,7 @@ namespace CIRClient
                     string desc = "";
                     string file1 = "";
                     string file2 = "";
-                    int isSuccess = 0;
+                    string isSuccess = "";
 
                     // 把每一个column对应的值记录下来
                     for (int i = 0; i < columns.Length; i++)
@@ -380,7 +400,14 @@ namespace CIRClient
                                 file2 = pair[1];
                                 break;
                             case "isSuccess":
-                                isSuccess = int.Parse(pair[1]);
+                                if (pair[1] == "1")
+                                {
+                                    isSuccess = "上传成功";
+                                }
+                                else
+                                {
+                                    isSuccess = "上传失败";
+                                }
                                 break;
                             default:
                                 break;
@@ -411,7 +438,7 @@ namespace CIRClient
             try
             {
                 SyncClient.SendBytes(FileHelper.getBytesOfString(GenerateSearchString()));
-                
+
                 _response = SyncClient.ReceiveString();
             }
             catch (Exception)
